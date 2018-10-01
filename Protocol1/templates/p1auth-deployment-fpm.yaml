@@ -33,12 +33,12 @@ spec:
     spec:
       {{- if $deployment.configMap }}
       volumes:
-      - name: $resourceName
+      - name: {{ $resourceName }}
         configMap:
-          name: $resourceName
+          name: {{ $resourceName }}
       {{- end }}
       containers:
-      - name: {{ $deployment.name }}
+      - name: {{ $resourceName }}
         image: {{ $deployment.image }}
         ports:
         - containerPort: {{ $deployment.port }}

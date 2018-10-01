@@ -1,0 +1,22 @@
+{{- $app := .Values.apps.auth -}}
+{{- $deployment := $app.deployments.nginx -}}
+{{- $endpoint := printf "%s-%s" $app.name $deployment.name}}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ $app.name }}
+  labels:
+    chart: {{ .Chart.Name }}
+    release: {{ .Release.Name }}
+    app: {{ $app.name }}
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: {{ $app.ingress.hostname }}
+    http:
+      paths:
+      - path: {{ $app.ingress.path }}
+        backend:
+          serviceName: {{ $endpoint }}
+          servicePort: {{ $deployment.service.port }}

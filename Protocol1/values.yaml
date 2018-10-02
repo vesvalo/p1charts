@@ -28,7 +28,6 @@ apps:
           port: 8080
           protocol: TCP
         configMap: 
-          name: nginx-config
           mountPath: /etc/nginx/conf.d/
       fpm:
         name: fpm

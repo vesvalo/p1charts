@@ -6,6 +6,9 @@ replicaCount:
   nginx: 2
   fpm: 2
 
+enableRedis: false
+enableMongo: false
+
 images:
   nginx: "nginx:1.15.4"
   fpm-auth: "vstaf/p1.php-fpm:0.1"
@@ -14,7 +17,7 @@ apps:
   auth:
     name: p1auth
     ingress:
-      hostname: k8s-auth.gamenet.ru
+      hostname: auth-tst.protocol.one
       path: /
     deployments:
       nginx:
@@ -31,7 +34,7 @@ apps:
           mountPath: /etc/nginx/conf.d/
       fpm:
         name: fpm
-        image: "vstaf/p1.php-fpm:0.1"
+        image: "vstaf/auth.protocol.one:1.0.0"
         port: 9000
         replicas: 2
         service:

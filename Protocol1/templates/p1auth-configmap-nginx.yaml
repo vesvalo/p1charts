@@ -16,7 +16,7 @@ data:
       server {
         server_name {{ $app.ingress.hostname }};
         listen {{ $deployment.port }} default_server;
-        root /var/www/html;
+        root /var/www/html/public;
         location = /_healthz {
           add_header Content-Type text/plain;
           return 200 'ok';

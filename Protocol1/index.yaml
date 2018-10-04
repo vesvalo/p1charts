@@ -1,0 +1,13 @@
+apiVersion: v1
+entries:
+  Protocol1:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2018-10-04T22:52:22.9602067+03:00
+    description: A Helm chart for Protocol.One
+    digest: bf7544ec06ac28fefeb52ee1f0a5a20498c9a35d8a55c12d098597b28d6f0710
+    name: Protocol1
+    urls:
+    - https://raw.githubusercontent.com/vesvalo/p1charts/master/Protocol1-0.1.0.tgz
+    version: 0.1.0
+generated: 2018-10-04T22:52:22.9517355+03:00
